@@ -16,7 +16,7 @@ int main ()
         n *= -1.0 * x * x / ((2 * i) * (2 * i + 1));
         i++;
     }
-    while (fabs(n) > e);
+    while (fabs(n) > e/4);
 	cout << sum << endl;
 	system("pause");
 	return 0;
