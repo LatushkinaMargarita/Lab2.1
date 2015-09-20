@@ -19,7 +19,7 @@ int main()
         i++;
 		f++;
     }
-    while (fabs(n) > e);
+    while (fabs(n) > e/4);
 
 		
 	
