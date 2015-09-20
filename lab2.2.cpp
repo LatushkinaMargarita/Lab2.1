@@ -1,13 +1,6 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
-int power(int x, int y)
-{
-	int ff=1;
-	for (int i =1 ;i<=y;i++)
-		ff *=x;
-	return ff;
-}
 int main()
 {
 	
