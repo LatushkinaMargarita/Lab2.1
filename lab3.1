@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+int rezult(int mat1[10][10],int mat2[10][10],int rezult[10][10],int n,int k,int m)
+{
+	for (int i=0; i<n; i++)
+	{
+		int h=i;
+		for (int f = 0;f < m; f++)
+		{
+			for (int j=0; j<k; j++)
+		{
+			rezult[i][f] += mat1[i][j] *mat2[j][f];
+		}
+		}
+	}
+		for (int i=0; i<n; i++)
+	{
+		for (int j=0; j<m; j++)
+		{
+			cout<< rezult[i][j]<<' ';
+		}
+		cout <<endl;
+	}
+		return 0;
+}
+int main()
+{
+	int matrezult[10][10] = {0};
+	int mat1[10][10];
+	int n, k;
+	cout << "Input n"<< endl;
+	cin >> n;
+	cout << "Input k"<< endl;
+	cin >> k;
+	for (int i=0; i<n; i++)
+	{
+		for (int j=0; j<k; j++)
+	{
+		cin >> mat1[i][j];
+	}
+	}
+	int mat2[10][10];
+	int  m;
+	cout << "Input k"<< endl;
+	cin >> k;
+	cout << "Input m"<< endl;
+	cin >> m;
+	for (int i=0; i<k; i++)
+	{
+		for (int j=0; j<m; j++)
+	{
+		cin >> mat2[i][j];
+	}
+	}
+	cout<< endl;
+	rezult(mat1,mat2,matrezult,n,k,m);
+	system ("pause");
+	return 0;
+}
