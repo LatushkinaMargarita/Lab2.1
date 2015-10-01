@@ -1,28 +1,28 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-int rezult(int mas[100],int  n)
+int* rez(int mas[100],int  n)
 {
+	int *rezult=new int[3];
 	sort ( mas ,mas +n);
-	if (mas[0]*mas[1] == mas[n-2]* mas[n-3]  )
+	if (mas[0]*mas[1]* mas[n-1] > mas[n-2]* mas[n-3]* mas [n-1]  )
 	{
-		cout<< mas[n-1]<< ' ' << mas[0]<< ' ' << mas[1]<< endl;
-		cout <<  mas[n-1]<< ' ' << mas[n-2]<< ' ' << mas[n-3]<< endl;
-		system ("pause");
-		return 0;
+		rezult[0] = mas[0];
+		rezult[1] = mas[1];
+		rezult[2] = mas[n-1];
+	} 
+	else 
+	{
+		rezult[0] = mas[n-3];
+		rezult[1] = mas[n-2];
+		rezult[2] = mas[n-1];
 	}
-	if (mas[0]*mas[1] > mas[n-2]* mas[n-3]  )
-	{
-		cout << mas[n-1]<< ' ' << mas[0]<< ' ' << mas[1]<< endl;
 
-	} else 
-	{
-		cout << mas[n-1]<< ' ' << mas[n-2]<< ' ' << mas[n-3]<< endl;
-	}
-	system("pause");
+	return rezult;
 }
 int main()
 {
+	int* a=new int;
 	int mas[100]={0};
 	int n;
 	cout << "Input n"<< endl;
@@ -31,5 +31,10 @@ int main()
 	{
 		cin >> mas[i];
 	}
-	rezult(mas,n);
+	a=rez(mas,n);
+	for (int i=0; i<3; i++)
+	{
+		cout << a[i]<< ' ';
+	}
+	system("pause");
 }
