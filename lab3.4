@@ -1,0 +1,208 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int sum=0, l=0, v=0, d=0, m=0, c=0, x=0, k=0;
+	cout << "Input n"<< endl;
+	char number[100];
+	cin >> number;
+	
+	for (int i=0; i<strlen(number); i++)
+	{
+		
+		switch(number[i])
+		{
+			case 'M':
+				m++;
+				
+				if (i>0 && (number[i-1]=='X'|| number[i-1]=='I'||number[i-1]=='D' ||number[i-1]=='V'||number[i-1]=='L')  )
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+
+				if(m>3)
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if( i>0 && number[i-1]==number[i+1]&& number[i-1]=='C')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				
+				if(i>0 && number[i-1]=='C' && number[i-2]=='C')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if( i>0 && number[i-1]=='C')
+				{
+					sum-=200;
+				}
+				sum+=1000;
+				break;
+			case 'D':
+				d++;
+				if (i>0 && (number[i-1]=='X'|| number[i-1]=='I'||number[i-1]=='V'||number[i-1]=='L' ) )
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if (d>1)
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='C' && number[i-2]=='C')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='C')
+				{
+					sum-=200;
+				}
+				sum+=500;
+				break;
+			case 'C':
+				c++;
+				if (i>0 && number[i-1]=='I'||number[i-1]=='V'||number[i-1]=='L'  )
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(c>3)
+				{
+					cout << "Error"<< endl;
+					break;
+				}
+				if( i>0 && number[i-1]==number[i+1]&& number[i-1]=='X')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='X' && number[i-2]=='X')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='X')
+				{
+					sum-=20;
+				}
+				sum+=100;
+				break;
+			case 'L':
+				l++;
+				if (i>0 && (number[i-1]=='I'||number[i-1]=='V'))
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if (l>1)
+				{
+					cout << "Error"<< endl;
+					break;
+				}
+				if(i>0 && number[i-1]=='X' && number[i-2]=='X')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='X')
+				{
+					sum-=20;
+				}
+				sum+=50;
+				break;
+			case 'X':
+				x++;
+				if (i>0 && number[i-1]=='V')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(x>3)
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='I' && number[i-2]=='I')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='I')
+				{
+					sum-=2;
+				}
+				sum+=10;
+				break;
+			case 'V':
+				v++;
+				if (v>1)
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if( i>0 && number[i-1]==number[i+1]&& number[i-1]=='I')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='I' && number[i-2]=='I')
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				if(i>0 && number[i-1]=='I')
+				{
+
+					sum-=2;
+				}
+				
+				
+				sum+=5;
+				break;
+				
+			case 'I':
+				k++;
+				if(k>3)
+				{
+					cout << "Error"<< endl;
+					system("pause");
+					return 0;
+				}
+				else 
+				{
+				sum+=1;
+				break;
+				}
+		}	
+
+	}
+	cout << sum<< endl;
+	system("pause");
+	return 0;
+
+}
