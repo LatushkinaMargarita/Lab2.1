@@ -1,4 +1,7 @@
 
+#include <iostream>
+using namespace std;
+
 void zapysk(int kol, int a[], int b[], int sum[], int pr[])
 {
 	for (int i = 0; i < kol; i++)
