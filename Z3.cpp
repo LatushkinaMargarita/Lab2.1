@@ -39,22 +39,15 @@ void zapysk(int kol, int kol1, int a[], int b[], int sum[], int pr[], int ch[])
 
 void assert(int sum[], int pr[], int sum_[] ,int pr_[],int ch[])
 {
-		
-	int k = 0;
-    for (int j = 0; j < ch[0]; j++)
-	{
-        if(sum[j]==sum_[j])
-			k++;
-	}
-    for (int i = 0; i < ch[1]; i++)
-	{
-        if(pr[i]==pr_[i])
-			k++;
-	}
-    if (k==ch[0]+ch[1])
-        cout << "ok"<< endl;
+	bool ok = true;
+    for (int i = 0; i < ch[0]; ++i)
+        ok &= (sum[i] == sum_[i]);
+    for (int i = 0; i < ch[1]; ++i)
+        ok &= (pr[i] == pr_[i]);
+    if (ok)
+        cout <<"ok"<< endl;
     else
-        cout << "fail"<<endl;
+        cout<<"fail"<<endl;
 }
 int main()
 {
