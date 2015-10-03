@@ -18,13 +18,19 @@ void rezult(int mat1[3][3], int mat2[3][3], int rezult1[3][3], int n, int k, int
 void test(int n, int m, int matrezult[3][3], int mainmatrezult[3][3])
 {
 	bool bo = false;
+
 	for (int i = 0; i < n; i++)
-	for (int j = 0; j < m; j++)
-	if (matrezult[i][j] != mainmatrezult[i][j])
-		bo = true;
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (matrezult[i][j] != mainmatrezult[i][j])
+				bo = true;
+		}
+	}
 	if (bo == false)
 		cout << "ok" << endl;
-	else cout << "Fail" << endl;
+	else
+		cout << "Fail" << endl;
 }
 int main()
 {
