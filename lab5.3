@@ -86,52 +86,52 @@ void func()
 		}
 		number = 0;
 		if (is_op(str[i]))
+		{
+			while (!op.empty() && (priority(str[i]) <= priority(op.top())))
 			{
-				while (!op.empty() && (priority(str[i]) <= priority(op.top())))
-				{
-					x = s.top();
-					s.pop();
-					y = s.top();
-					s.pop();
-					z = op.top();
-					op.pop();
-					result = operation(y, x, z);
-					s.push(result);
-				}
+				x = s.top();
+				s.pop();
+				y = s.top();
+				s.pop();
+				z = op.top();
+				op.pop();
+				result = operation(y, x, z);
+				s.push(result);
+			}
+			op.push(str[i]);
+		if (str[0] == '-')
+		{
+			d++;
+			if (d == 1)
+			{
+				op.pop();
+			}
+		}
+		}
+		else
+		{
+			if (str[i] == '(')
+			{
 				op.push(str[i]);
-				if (str[0] == '-')
-				{
-					d++;
-					if (d == 1)
-					{
-						op.pop();
-					}
-				}
 			}
 			else
 			{
-				if (str[i] == '(')
+				if (str[i] == ')')
 				{
-					op.push(str[i]);
-				}
-				else
-				{
-					if (str[i] == ')')
+					while ((m = op.top()) != '(')
 					{
-						while ((m = op.top()) != '(')
-						{
-							x = s.top();
-							s.pop();
-							y = s.top();
-							s.pop();
-							z = op.top();
-							op.pop();
-							result = operation(y, x, z);
-							s.push(result);
-						}
+						x = s.top();
+						s.pop();
+						y = s.top();
+						s.pop();
+						z = op.top();
 						op.pop();
+						result = operation(y, x, z);
+						s.push(result);
 					}
+					op.pop();
 				}
+			}
 		}
 	}
 	while (!op.empty())
