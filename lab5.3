@@ -35,7 +35,7 @@ double operation(double x, double y, char z)
 		return x / y;
 	}
 }
-double func()
+double func(char *str)
 {
 	if (!s.empty())
 	{
@@ -149,7 +149,7 @@ double func()
 int main()
 {
 	cin >> str;
-	func();
+	func(str);
 	cout << s.top() << endl;
 	system("pause");
 }
