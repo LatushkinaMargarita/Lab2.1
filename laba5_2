@@ -33,7 +33,25 @@ int formula(char str[])
 	return digit.top();
 }
 
+void assert(char str[], int ans)
+{
+	if (formula(str) == ans)
+	{
+		cout << "Ok" << endl;
+	}
+	else
+	{
+		cout << "Fail" << endl;
+	}
+}
 int main()
 {
+	char str1[] = "max(4, min(3,5))";
+	assert(str1, 4);
+	char str2[] = "max(min(2,6), min(3,7))";
+	assert(str2, 3);
+	char str3[] = "min(max(8,2), min(6,max(3,4)))";
+	assert(str3, 4);
+	system("pause");
 	return 0;
 }
