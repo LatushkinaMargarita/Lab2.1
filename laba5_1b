@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+using namespace std;
+
+struct item 
+{
+	char key;
+	item* prev;
+};
+
+bool structure(char *str) 
+{
+	item* top = new item;
+	top->key = 0, top->prev = NULL;
+	for (int i = 0; i < strlen(str); ++i)
+		if (str[i] == '(' || str[i] == '[' || str[i] == '{') {
+			item* cur = new item;
+			cur->key = str[i];
+			cur->prev = top;
+			top = cur;
+		}
+		else 
+		{
+			if (str[i] == ')' && top->key != '(' || str[i] == ']' && top->key != '[' || str[i] == '}' && top->key != '{')
+				return false;
+			top = top->prev;
+		}
+		return top->key == 0;
+}
+
+int main()
+{
+	return 0;
+}
