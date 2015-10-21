@@ -41,7 +41,6 @@ double func(char *str)
 	{
 		s.pop();
 	}
-	char str1[100];
 	double pr[100];
 	double number = 0, k = 0, d = 0;
 	char m;
@@ -146,10 +145,22 @@ double func(char *str)
 	}
 	return s.top();
 }
+
+void assert(char str[], double ans) 
+{
+	const double pogr = 0.01;
+	double res = func(str);
+	if (abs(res - ans) <= pogr)
+		puts("OK");
+	else
+		puts("FAIL");
+}
+
 int main()
 {
-	cin >> str;
-	func(str);
-	cout << s.top() << endl;
-	system("pause");
+	assert("(2+3)/2+(1-4)/7", 2.0714285714);
+	assert("2+3*(4-8/2+4/(2-1))",14);
+	assert("-2*((3+5)/4-7*9+3*(4+5))+1", 69);
+	assert("((((1+2)+3)+4)*5)/2-3*(1+4)-1", 9);
+	return 0;
 }
