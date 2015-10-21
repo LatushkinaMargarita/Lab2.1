@@ -30,7 +30,27 @@ bool structure(char *str)
 		return top->key == 0;
 }
 
+void assert(char str[], bool ans)
+{
+	bool res = structure(str);
+	if (res == ans)
+		cout << "Ok" << endl;
+	else
+		cout << "Fail" << endl;
+}
+
 int main()
 {
+	char str1[] = "(())({[]})";
+	assert(str1, true);
+	char str2[] = "([])";
+	assert(str2, true);
+	char str3[] = "(()";
+	assert(str3, false);
+	char str4[100] = "(())[][}";
+	assert(str4, false);
+	char str5[] = "()([])";
+	assert(str5, true);
+	system("pause");
 	return 0;
 }
