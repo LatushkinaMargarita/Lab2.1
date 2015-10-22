@@ -4,19 +4,20 @@
 #include <algorithm>
 using namespace std;
 
-struct item 
+struct point 
 {
 	char key;
-	item* prev;
+	point* prev;
 };
 
 bool structure(char *str) 
 {
-	item* top = new item;
+	point* top = new point;
 	top->key = 0, top->prev = NULL;
 	for (int i = 0; i < strlen(str); ++i)
-		if (str[i] == '(' || str[i] == '[' || str[i] == '{') {
-			item* cur = new item;
+		if (str[i] == '(' || str[i] == '[' || str[i] == '{') 
+		{
+			point* cur = new point;
 			cur->key = str[i];
 			cur->prev = top;
 			top = cur;
